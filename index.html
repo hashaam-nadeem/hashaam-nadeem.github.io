@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hashaam Nadeem | Flutter Team Lead</title>
+<meta name="description" content="Hashaam Nadeem, Flutter Team Lead with 6+ years building iOS and Android apps: IoT, payments, marketplaces and real-time chat. Available for interviews.">
+<meta property="og:title" content="Hashaam Nadeem | Flutter Team Lead">
+<meta property="og:description" content="6+ years shipping Flutter apps to the App Store and Google Play. Book an interview.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a1128; --surface:#111a38; --surface2:#17224a; --line:#243063;
+  --text:#eaf0ff; --muted:#9db0d8;
+  --sky:#54c5f8; --indigo:#6c63ff; --amber:#ffb547; --mint:#46e0a4;
+  --radius:18px;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="light"]{
+  --ink:#f5f8ff; --surface:#ffffff; --surface2:#eaf0ff; --line:#d3dcf5;
+  --text:#0d1736; --muted:#4d5f8f; --sky:#0a7fc4; --indigo:#4b43d8; --amber:#c97a00; --mint:#0d9467;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--body);background:var(--ink);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* backdrop */
+#bg{position:fixed;inset:0;z-index:-1;width:100%;height:100%;opacity:.55}
+.glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle,rgba(84,197,248,.16),transparent 65%);transform:translate(-50%,-50%);left:50%;top:30%;transition:left .25s ease-out,top .25s ease-out}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--indigo),var(--sky));z-index:100}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ink) 78%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.3px}
+.logo i{font-style:normal;color:var(--sky)}
+.menu{display:flex;gap:6px;align-items:center}
+.menu a.l{padding:8px 12px;border-radius:10px;color:var(--muted);font-size:14.5px;transition:.2s}
+.menu a.l:hover,.menu a.l.on{color:var(--text);background:var(--surface2)}
+.icon-btn{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;font-size:17px;display:grid;place-items:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:14px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;font-family:var(--body);transition:transform .18s,box-shadow .18s,background .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn.call{background:var(--amber);color:#2a1800;box-shadow:0 10px 28px rgba(255,181,71,.28)}
+.btn.wa{background:var(--mint);color:#032a1c}
+.btn.ghost{background:var(--surface);border-color:var(--line);color:var(--text)}
+.btn.sm{padding:9px 16px;font-size:14px;border-radius:11px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:72px 0 56px;min-height:calc(100vh - 64px)}
+.status{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:13.5px;color:var(--muted)}
+.status b{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(70,224,164,.6);animation:ping 2s infinite}
+@keyframes ping{to{box-shadow:0 0 0 10px rgba(70,224,164,0)}}
+h1{font-family:var(--display);font-size:clamp(38px,6.2vw,68px);line-height:1.03;letter-spacing:-.035em;font-weight:800;margin:22px 0 18px}
+.typed{font-family:var(--mono);font-size:clamp(15px,2vw,18px);color:var(--sky);min-height:30px;margin-bottom:16px}
+.typed::after{content:"";display:inline-block;width:8px;height:1.1em;background:var(--sky);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{font-size:18px;color:var(--muted);max-width:540px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;color:var(--muted);font-size:14px}
+
+/* phone */
+.stage{display:grid;place-items:center;perspective:1100px}
+.phone{width:290px;height:590px;border-radius:44px;padding:11px;background:linear-gradient(160deg,#2b3768,#0d1432);border:1px solid #3a4887;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 80px rgba(108,99,255,.25);transform-style:preserve-3d;transition:transform .15s ease-out;position:relative}
+.phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:#04081a;border-radius:14px;z-index:5}
+.screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#0b1332;position:relative;color:#eaf0ff}
+.slides{display:flex;height:100%;transition:transform .6s cubic-bezier(.65,0,.25,1)}
+.slide{min-width:100%;padding:58px 18px 18px;display:flex;flex-direction:column;gap:14px;font-size:13px}
+.slide h4{font-family:var(--display);font-size:20px;line-height:1.15}
+.slide small{color:#94a6d6}
+.ring{width:150px;height:150px;border-radius:50%;margin:6px auto;display:grid;place-items:center;background:conic-gradient(#46e0a4 0 78%,#1b2750 78% 100%);position:relative}
+.ring::after{content:"";position:absolute;inset:13px;background:#0b1332;border-radius:50%}
+.ring span{position:relative;z-index:1;font-family:var(--display);font-size:34px;font-weight:800;text-align:center;line-height:1}
+.ring em{display:block;font-style:normal;font-size:11px;color:#94a6d6;font-weight:500;margin-top:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:#12204a;border:1px solid #27386f;padding:5px 11px;border-radius:999px;font-size:11.5px;width:fit-content}
+.pill i{width:7px;height:7px;border-radius:50%;background:#46e0a4}
+.fake-btn{margin-top:auto;background:linear-gradient(135deg,#6c63ff,#54c5f8);color:#06102a;padding:13px;border-radius:14px;text-align:center;font-weight:700}
+.tour{display:flex;gap:11px;background:#111c42;border:1px solid #223163;border-radius:14px;padding:10px;align-items:center}
+.tour .th{width:54px;height:54px;border-radius:11px;flex:none}
+.tour b{display:block;font-size:13px}
+.tour small{font-size:11.5px}
+.temp{font-family:var(--display);font-size:54px;font-weight:800;text-align:center;line-height:1;margin-top:10px}
+.bars{display:flex;gap:6px;align-items:flex-end;height:90px;margin-top:6px}
+.bars i{flex:1;background:linear-gradient(#54c5f8,#6c63ff);border-radius:6px 6px 2px 2px}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:7px;z-index:4}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;background:#2c3c75;cursor:pointer;padding:0}
+.dots button.on{background:#54c5f8;width:22px;border-radius:6px}
+.cap{margin-top:16px;font-size:12.5px;color:var(--muted);text-align:center}
+
+/* sections */
+section{padding:84px 0}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+h2{font-family:var(--display);font-size:clamp(28px,4vw,42px);letter-spacing:-.025em;line-height:1.1}
+.sec-h p{color:var(--muted);max-width:430px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.stat{padding:26px 22px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{font-family:var(--display);font-size:42px;letter-spacing:-.03em;display:block;line-height:1}
+.stat span{color:var(--muted);font-size:14px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
+.about p{color:var(--muted);font-size:17px;margin-bottom:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.panel h3{font-family:var(--display);font-size:18px;margin-bottom:14px}
+.panel li{list-style:none;display:flex;gap:11px;padding:8px 0;border-bottom:1px dashed var(--line);color:var(--muted);font-size:15px}
+.panel li:last-child{border:0}
+.panel li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--sky);margin-top:9px;flex:none}
+
+/* timeline */
+.tl{position:relative;padding-left:30px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--sky),var(--indigo),transparent)}
+.job{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.job::before{content:"";position:absolute;left:-30px;top:28px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--sky)}
+.job button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 24px;cursor:pointer}
+.job button:focus-visible{outline:2px solid var(--sky);outline-offset:-4px;border-radius:var(--radius)}
+.job h3{font-family:var(--display);font-size:20px;line-height:1.2}
+.job .co{color:var(--sky);font-weight:600;font-size:15px}
+.job .when{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.job .chev{transition:transform .3s;color:var(--muted);font-size:20px}
+.job.open .chev{transform:rotate(180deg)}
+.job .body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.job .body ul{padding:0 24px 22px 44px;color:var(--muted);font-size:15px}
+.job .body li{margin-bottom:8px}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer;font-size:14px;font-family:var(--body);transition:.2s}
+.chip:hover{color:var(--text)}
+.chip.on{background:var(--text);color:var(--ink);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s,opacity .3s;position:relative;overflow:hidden}
+.proj:hover{transform:translateY(-4px);border-color:var(--sky)}
+.proj.hide{display:none}
+.proj h3{font-family:var(--display);font-size:20px;display:flex;align-items:center;gap:10px}
+.proj .sw{width:12px;height:12px;border-radius:4px;flex:none}
+.proj p{color:var(--muted);font-size:14.5px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--mono);font-size:11.5px;color:var(--sky);background:var(--surface2);padding:3px 9px;border-radius:7px}
+.links{display:flex;gap:14px;font-size:14px;font-weight:600;margin-top:4px}
+.links a{color:var(--text);border-bottom:2px solid var(--sky)}
+.links a:hover{color:var(--sky)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.sk h3{font-family:var(--display);font-size:17px;margin-bottom:14px}
+.row{margin-bottom:13px}
+.row div{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.row div span:last-child{color:var(--muted);font-family:var(--mono);font-size:12px}
+.bar{height:7px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--indigo),var(--sky));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.mini{display:flex;flex-wrap:wrap;gap:8px}
+.mini span{background:var(--surface2);border:1px solid var(--line);padding:6px 12px;border-radius:10px;font-size:13.5px}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.edu .panel b{font-family:var(--display);font-size:19px;display:block}
+.edu .panel span{color:var(--muted);font-size:14.5px}
+
+/* contact */
+.contact{border:1px solid var(--line);border-radius:28px;background:
+  radial-gradient(600px 300px at 90% 0%,rgba(108,99,255,.28),transparent 70%),
+  radial-gradient(500px 300px at 0% 100%,rgba(84,197,248,.2),transparent 70%),var(--surface);
+  padding:clamp(26px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact h2{font-size:clamp(30px,4.4vw,46px);margin-bottom:14px}
+.contact>div>p{color:var(--muted);margin-bottom:22px}
+.chan{display:grid;gap:10px}
+.chan a,.chan button{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;background:var(--ink);border:1px solid var(--line);border-radius:14px;color:var(--text);font-family:var(--body);font-size:15px;cursor:pointer;text-align:left;transition:border-color .2s}
+.chan a:hover,.chan button:hover{border-color:var(--sky)}
+.chan small{color:var(--muted);font-family:var(--mono);font-size:12px}
+form{display:grid;gap:12px;background:var(--ink);border:1px solid var(--line);border-radius:20px;padding:24px}
+form h3{font-family:var(--display);font-size:20px}
+label{font-size:13.5px;color:var(--muted);display:grid;gap:6px}
+input,select,textarea{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--sky);border-color:transparent}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fbtns{display:flex;gap:10px;flex-wrap:wrap}
+.fbtns .btn{flex:1;min-width:140px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,40px);background:var(--text);color:var(--ink);padding:11px 20px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;transition:.3s;z-index:200;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+footer{padding:30px 0 110px;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid var(--line)}
+
+/* floating dock */
+.dock{position:fixed;right:16px;bottom:16px;display:flex;gap:10px;z-index:80}
+.dock .btn{box-shadow:0 14px 34px rgba(0,0,0,.4)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0;padding-top:48px}
+  .stage{order:-1}
+  .phone{transform:scale(.88)!important}
+  .about,.contact{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .menu a.l{display:none}
+}
+@media(max-width:520px){.two{grid-template-columns:1fr}.dock .btn span.t{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">hashaam<i>.</i>dev</a>
+    <div class="menu">
+      <a class="l" href="#about">About</a>
+      <a class="l" href="#experience">Experience</a>
+      <a class="l" href="#projects">Projects</a>
+      <a class="l" href="#skills">Skills</a>
+      <a class="l" href="#contact">Contact</a>
+      <button class="icon-btn" id="theme" aria-label="Switch between dark and light theme">☾</button>
+      <a class="btn call sm" href="tel:+923368788821">Call me</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top" class="wrap">
+
+  <header class="hero">
+    <div>
+      <span class="status"><b></b> Available for interviews now</span>
+      <h1>Flutter apps that connect to real hardware and real users.</h1>
+      <div class="typed" id="typed" aria-live="off"></div>
+      <p class="lede">I'm Hashaam Nadeem, a Flutter Team Lead with 6+ years of shipping iOS and Android apps. I lead developers, fix the hard problems (Bluetooth, payments, performance) and keep stakeholders in the loop.</p>
+      <div class="cta">
+        <a class="btn call" href="tel:+923368788821">Call +92 336 8788821</a>
+        <a class="btn wa" href="https://wa.me/923368788821?text=Hi%20Hashaam%2C%20I%27d%20like%20to%20schedule%20an%20interview." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" href="#projects">See my apps</a>
+      </div>
+      <div class="meta"><span>Lahore, Pakistan</span><span>Open to remote</span><span>Reply within a day</span></div>
+    </div>
+
+    <div class="stage">
+      <div class="phone" id="phone">
+        <div class="screen">
+          <div class="slides" id="slides">
+            <div class="slide">
+              <small>Pow and Go</small><h4>Charging session</h4>
+              <div class="ring"><span>78%<em>12 kWh added</em></span></div>
+              <span class="pill"><i></i> Charger connected</span>
+              <div class="fake-btn">Stop charging</div>
+            </div>
+            <div class="slide">
+              <small>eTrips</small><h4>Book your next tour</h4>
+              <div class="tour"><div class="th" style="background:linear-gradient(135deg,#6c63ff,#54c5f8)"></div><div><b>Hunza Valley</b><small>5 days · 3 seats left</small></div></div>
+              <div class="tour"><div class="th" style="background:linear-gradient(135deg,#ffb547,#ff6b6b)"></div><div><b>Dubai City Pass</b><small>Hotel + events</small></div></div>
+              <div class="tour"><div class="th" style="background:linear-gradient(135deg,#46e0a4,#54c5f8)"></div><div><b>Murree Weekend</b><small>2 days · family</small></div></div>
+              <div class="fake-btn">Book now</div>
+            </div>
+            <div class="slide">
+              <small>eTRAPP</small><h4>AC health monitor</h4>
+              <div class="temp">24°C</div>
+              <div class="bars"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:58%"></i><i style="height:92%"></i><i style="height:70%"></i></div>
+              <span class="pill"><i></i> Bluetooth linked</span>
+              <div class="fake-btn">Run diagnostics</div>
+            </div>
+          </div>
+          <div class="dots" id="dots"></div>
+        </div>
+      </div>
+      <p class="cap">Illustrative screens inspired by apps I've built</p>
+    </div>
+  </header>
+
+  <div class="stats" id="stats">
+    <div class="stat"><b data-n="6" data-s="+">0</b><span>Years in mobile</span></div>
+    <div class="stat"><b data-n="20" data-s="+">0</b><span>Apps delivered</span></div>
+    <div class="stat"><b data-n="4">0</b><span>Companies</span></div>
+    <div class="stat"><b data-n="2">0</b><span>Years as team lead</span></div>
+  </div>
+
+  <section id="about">
+    <div class="sec-h"><h2>About</h2><p>Designer, developer, tester and the user's advocate, all in one person.</p></div>
+    <div class="about">
+      <div>
+        <p>I specialize in cross-platform mobile development with Flutter. The work I enjoy most sits where software meets the physical world: Bluetooth and IoT devices, background services, encrypted data transfer and real-time sync.</p>
+        <p>As a team lead I assign work to match each developer's strengths, review code in depth and set the standards for state management, performance and maintainability. I also translate between business needs and technical delivery, so stakeholders always know where a project stands.</p>
+        <p>I keep learning new tools and I work as well alone as I do inside a team.</p>
+      </div>
+      <div class="panel">
+        <h3>What I bring to a team</h3>
+        <ul>
+          <li>Flutter leadership: reviews, standards and mentoring</li>
+          <li>IoT and Bluetooth integration that stays connected</li>
+          <li>Firebase, REST, SOAP and secure authentication</li>
+          <li>Performance profiling with Dart DevTools</li>
+          <li>App Store and Play Store releases, CI/CD</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-h"><h2>Experience</h2><p>Select a role to see what I delivered there.</p></div>
+    <div class="tl">
+
+      <div class="job open">
+        <button aria-expanded="true"><div><h3>Flutter Team Lead</h3><div class="co">MayFair Technology (MTP)</div></div><div style="text-align:right"><div class="when">06/2023 – Present</div><span class="chev">⌄</span></div></button>
+        <div class="body"><ul>
+          <li>Lead PowandGo, resolving IoT issues in device connectivity and data synchronization so hardware and app work reliably together.</li>
+          <li>Designed and maintain eTrip: multi-tour bookings, hotel management and event coordination with dynamic booking flows and real-time updates.</li>
+          <li>Integrated Firebase live chat and multi-provider login with Apple Sign-In, Google OAuth, Twitter and Instagram APIs.</li>
+          <li>Direct a team of Flutter developers: task allocation, Provider and Riverpod state management, in-depth code reviews.</li>
+          <li>Fixed bottlenecks (slow API calls, memory leaks, UI rendering delays) using Dart DevTools and profiling.</li>
+          <li>Keep stakeholders aligned with regular updates and live feature demos.</li>
+        </ul></div>
+      </div>
+
+      <div class="job">
+        <button aria-expanded="false"><div><h3>Flutter Team Lead</h3><div class="co">CyberSoft</div></div><div style="text-align:right"><div class="when">03/2022 – 06/2023</div><span class="chev">⌄</span></div></button>
+        <div class="body"><ul>
+          <li>Designed complex UI/UX with designers for diverse audiences.</li>
+          <li>Built IoT workflows with reliable Bluetooth data transfer and advanced encryption.</li>
+          <li>Worked on Simpello, integrating ML-based SDKs for precise facial feature detection.</li>
+          <li>Managed eTrapp, optimizing Python code compilation within Dart for cross-platform compatibility.</li>
+          <li>Enabled Android and iOS background services for Bluetooth monitoring, automatic reconnection and robust data transfer.</li>
+        </ul></div>
+      </div>
+
+      <div class="job">
+        <button aria-expanded="false"><div><h3>Senior Flutter Developer</h3><div class="co">Bright Media</div></div><div style="text-align:right"><div class="when">11/2020 – 03/2022</div><span class="chev">⌄</span></div></button>
+        <div class="body"><ul>
+          <li>Managed BLoC and Provider state management for smooth data flow in complex features.</li>
+          <li>Built the App Locker app with native functionality inside Flutter.</li>
+          <li>Integrated third-party payment gateways through Method Channels.</li>
+          <li>Implemented SOAP API integration with XML parsing for legacy systems.</li>
+        </ul></div>
+      </div>
+
+      <div class="job">
+        <button aria-expanded="false"><div><h3>Associate Flutter Developer</h3><div class="co">Assorttech</div></div><div style="text-align:right"><div class="when">06/2019 – 11/2020</div><span class="chev">⌄</span></div></button>
+        <div class="body"><ul>
+          <li>Built responsive mobile UIs for a range of device sizes.</li>
+          <li>Integrated RESTful APIs for dynamic content.</li>
+          <li>Configured Firebase authentication: email and password, social login, anonymous access.</li>
+          <li>Built PDF generation and printing from mobile devices.</li>
+        </ul></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-h"><h2>Apps I've built</h2><p>Several are live on Google Play and the App Store. Filter by type.</p></div>
+    <div class="filters" id="filters" role="group" aria-label="Filter projects">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="iot">IoT and ML</button>
+      <button class="chip" data-f="events">Events and travel</button>
+      <button class="chip" data-f="commerce">Commerce</button>
+      <button class="chip" data-f="media">Media</button>
+      <button class="chip" data-f="other">Other</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-h"><h2>Skills</h2><p>What I use every day, and what I've used along the way.</p></div>
+    <div class="skills" id="skillgrid">
+      <div class="panel sk"><h3>Core mobile</h3>
+        <div class="row"><div><span>Flutter and Dart</span><span>Expert</span></div><div class="bar"><i data-w="96"></i></div></div>
+        <div class="row"><div><span>State management (Provider, Riverpod, BLoC)</span><span>Expert</span></div><div class="bar"><i data-w="92"></i></div></div>
+        <div class="row"><div><span>Firebase and push notifications</span><span>Advanced</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div><span>Native integration (Method Channels)</span><span>Advanced</span></div><div class="bar"><i data-w="85"></i></div></div>
+      </div>
+      <div class="panel sk"><h3>Backend and data</h3>
+        <div class="row"><div><span>REST APIs and security</span><span>Advanced</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="row"><div><span>MySQL and PostgreSQL</span><span>Advanced</span></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="row"><div><span>MongoDB and NoSQL</span><span>Intermediate</span></div><div class="bar"><i data-w="72"></i></div></div>
+        <div class="row"><div><span>Java, Kotlin, C#, C++, PHP</span><span>Working</span></div><div class="bar"><i data-w="68"></i></div></div>
+      </div>
+      <div class="panel sk"><h3>Delivery</h3>
+        <div class="mini"><span>CI/CD</span><span>App Store publishing</span><span>Play Store publishing</span><span>Git</span><span>GitHub</span><span>GitLab</span><span>Cloud integration</span><span>Server configuration</span></div>
+        <h3 style="margin-top:22px">Web</h3>
+        <div class="mini"><span>HTML</span><span>CSS</span><span>Responsive design</span><span>JSON and XML</span><span>Web authentication</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-h"><h2>Education</h2></div>
+    <div class="edu">
+      <div class="panel"><b>BS Computer Science</b><span>University of Central Punjab, Lahore<br>2014 – 2019</span></div>
+      <div class="panel"><b>ICS</b><span>Army Public School, Sargodha<br>2012 – 2014</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <h2>Let's set up an interview.</h2>
+        <p>Hiring a Flutter lead or senior mobile engineer? Reach me on whichever channel is quickest for you.</p>
+        <div class="chan">
+          <a href="tel:+923368788821"><span>Call</span><small>+92 336 8788821</small></a>
+          <a href="https://wa.me/923368788821?text=Hi%20Hashaam%2C%20I%27d%20like%20to%20schedule%20an%20interview." target="_blank" rel="noopener"><span>WhatsApp</span><small>Chat now</small></a>
+          <a href="mailto:hashaamnadeem55@gmail.com?subject=Interview%20invitation"><span>Email</span><small>hashaamnadeem55@gmail.com</small></a>
+          <a href="https://linkedin.com/in/hashaamnadeem/" target="_blank" rel="noopener"><span>LinkedIn</span><small>/in/hashaamnadeem</small></a>
+          <button type="button" id="copyNum"><span>Copy phone number</span><small>one tap</small></button>
+        </div>
+      </div>
+      <form id="form">
+        <h3>Send an interview request</h3>
+        <div class="two">
+          <label>Your name<input id="fn" required autocomplete="name"></label>
+          <label>Company<input id="fc" autocomplete="organization"></label>
+        </div>
+        <div class="two">
+          <label>Role<input id="fr" placeholder="e.g. Flutter Lead"></label>
+          <label>Preferred time<select id="ft"><option>This week</option><option>Next week</option><option>Anytime</option></select></label>
+        </div>
+        <label>Message<textarea id="fm" placeholder="Tell me about the role"></textarea></label>
+        <div class="fbtns">
+          <button class="btn call" type="submit" data-via="mail">Send by email</button>
+          <button class="btn wa" type="submit" data-via="wa">Send on WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="wrap">© <span id="y"></span> Hashaam Nadeem · Flutter Team Lead · Lahore, Pakistan</div></footer>
+
+<div class="dock">
+  <a class="btn call" href="tel:+923368788821">Call<span class="t"> now</span></a>
+  <a class="btn wa" href="https://wa.me/923368788821?text=Hi%20Hashaam%2C%20I%27d%20like%20to%20schedule%20an%20interview." target="_blank" rel="noopener">WhatsApp</a>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('#y').textContent=new Date().getFullYear();
+
+  /* theme */
+  var root=document.documentElement, tbtn=$('#theme');
+  function setTheme(t){root.setAttribute('data-theme',t);tbtn.textContent=t==='dark'?'☾':'☀';try{localStorage.setItem('theme',t)}catch(e){}}
+  try{var saved=localStorage.getItem('theme');if(saved)setTheme(saved)}catch(e){}
+  tbtn.addEventListener('click',function(){setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark')});
+
+  /* toast */
+  var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2200)}
+
+  /* scroll progress + nav highlight */
+  var links=$$('.menu a.l'), secs=links.map(function(a){return $(a.getAttribute('href'))});
+  function onScroll(){
+    var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    $('#progress').style.width=(p*100)+'%';
+    var y=h.scrollTop+120,cur=-1;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* typed roles */
+  var roles=['Flutter Team Lead','IoT and Bluetooth integration','Firebase, payments and real-time chat','iOS and Android, one codebase'];
+  var te=$('#typed'),ri=0,ci=0,del=false;
+  function type(){
+    var w=roles[ri];
+    if(reduce){te.textContent=roles[0];return}
+    te.textContent=w.slice(0,ci);
+    if(!del&&ci<w.length){ci++;setTimeout(type,70)}
+    else if(!del){del=true;setTimeout(type,1500)}
+    else if(ci>0){ci--;setTimeout(type,35)}
+    else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}
+  }
+  type();
+
+  /* phone carousel + tilt */
+  var si=0,slides=$('#slides'),dots=$('#dots'),n=3,timer;
+  for(var i=0;i<n;i++){var b=document.createElement('button');b.setAttribute('aria-label','Show screen '+(i+1));(function(i){b.addEventListener('click',function(){go(i);restart()})})(i);dots.appendChild(b)}
+  function go(i){si=i;slides.style.transform='translateX(-'+(i*100)+'%)';$$('button',dots).forEach(function(d,k){d.classList.toggle('on',k===i)})}
+  function restart(){clearInterval(timer);if(!reduce)timer=setInterval(function(){go((si+1)%n)},4200)}
+  go(0);restart();
+  var phone=$('#phone');
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    phone.parentElement.addEventListener('mousemove',function(e){
+      var r=phone.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      phone.style.transform='rotateY('+(x*16)+'deg) rotateX('+(-y*12)+'deg)';
+    });
+    phone.parentElement.addEventListener('mouseleave',function(){phone.style.transform='rotateY(-8deg) rotateX(3deg)'});
+    phone.style.transform='rotateY(-8deg) rotateX(3deg)';
+    document.addEventListener('mousemove',function(e){var g=$('#glow');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+  }
+
+  /* experience accordion */
+  function fit(j){var b=$('.body',j);b.style.maxHeight=j.classList.contains('open')?b.scrollHeight+'px':'0'}
+  $$('.job').forEach(function(j){
+    fit(j);
+    $('button',j).addEventListener('click',function(){
+      var o=j.classList.toggle('open');this.setAttribute('aria-expanded',o);fit(j);
+    });
+  });
+  window.addEventListener('resize',function(){$$('.job').forEach(fit)});
+
+  /* projects */
+  var P=[
+    {n:'Pow and Go',c:'iot',col:'#46e0a4',d:'EV charger management with reliable device connectivity and data sync between hardware and app.',t:['Flutter','IoT','Firebase'],l:[['Google Play','https://play.google.com/store/apps/details?id=com.mtp.powandgos&hl=en'],['App Store','https://apps.apple.com/us/app/powandgo/id676921790']]},
+    {n:'eTRAPP',c:'iot',col:'#54c5f8',d:'Azure-based AC issue detector. Bluetooth monitoring, auto-reconnect and encrypted data transfer, with background services on both platforms.',t:['Flutter','Bluetooth','Azure','Python'],l:[['Google Play','https://play.google.com/store/apps/details?id=com.cybersoft.etrap'],['App Store','https://apps.apple.com/pk/app/etrapp/id161509285']]},
+    {n:'Smpello',c:'iot',col:'#6c63ff',d:'User and kiosk apps for automated hotel check-in, using ML-based SDKs for facial feature detection.',t:['Flutter','ML SDK','Kiosk']},
+    {n:'eTrips',c:'events',col:'#ffb547',d:'Trip planner and event platform: multi-tour booking, hotel management, live chat and social login.',t:['Flutter','Firebase','OAuth','Live chat']},
+    {n:'EDS',c:'events',col:'#ff6b9a',d:'Event management application for organizers and attendees.',t:['Flutter','Events'],l:[['Google Play','https://play.google.com/store/apps/details?id=com.mtp.eds']]},
+    {n:'Hajj Management System',c:'events',col:'#46e0a4',d:'Management app for coordinating Hajj operations.',t:['Flutter','Management']},
+    {n:'Multi-vendor marketplaces',c:'commerce',col:'#6c63ff',d:'BringitQatar, Sinbad, BrQtr and MazadAlzubarah (bidding and e-commerce). Multiple vendors, catalogs, orders and payments.',t:['Flutter','E-commerce','Payments']},
+    {n:'jaikApp',c:'commerce',col:'#ff8a4c',d:'Food delivery app.',t:['Flutter','Delivery']},
+    {n:'Satha Qatar',c:'commerce',col:'#54c5f8',d:'Ride-hailing app in the style of Uber.',t:['Flutter','Maps','Realtime']},
+    {n:'Job Reels',c:'media',col:'#ff6b6b',d:'Short-video job discovery app.',t:['Flutter','Video'],l:[['Google Play','https://play.google.com/store/apps/details?id=india.reels.job']]},
+    {n:'Happytails TV',c:'media',col:'#ffb547',d:'Short-video dog adoption app in the style of TikTok.',t:['Flutter','Video','Social']},
+    {n:'Property Finder',c:'other',col:'#46e0a4',d:'Real-estate search app published on both stores.',t:['Flutter','REST'],l:[['Google Play','https://play.google.com/store/apps/details?id=ae.propertyfinder.propertyfinder&hl=en'],['App Store','https://apps.apple.com/us/app/property-finder-realestate/id89750233']]},
+    {n:'MyHarbeck',c:'other',col:'#54c5f8',d:'Production app available on Google Play.',t:['Flutter'],l:[['Google Play','https://play.google.com/store/apps/details?id=com.mtp.myharbeck&hl=en']]},
+    {n:'App Locker',c:'other',col:'#6c63ff',d:'Security app with native functionality inside Flutter.',t:['Flutter','Native APIs']},
+    {n:'Labas',c:'other',col:'#46e0a4',d:'Doctor and patient app.',t:['Flutter','Healthcare']},
+    {n:'SCS',c:'other',col:'#ffb547',d:'Loan scoring app.',t:['Flutter','Finance']},
+    {n:'Sewan',c:'other',col:'#ff6b9a',d:'Property management app.',t:['Flutter','Management']},
+    {n:'X-Ray App and Eye Candy',c:'other',col:'#54c5f8',d:'An X-ray image viewing app and a front-end barber booking app.',t:['Flutter','UI']}
+  ];
+  var g=$('#grid');
+  P.forEach(function(p){
+    var el=document.createElement('article');el.className='proj';el.dataset.c=p.c;
+    var h='<h3><span class="sw" style="background:'+p.col+'"></span>'+p.n+'</h3><p>'+p.d+'</p><div class="tags">'+p.t.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>';
+    if(p.l)h+='<div class="links">'+p.l.map(function(x){return '<a href="'+x[1]+'" target="_blank" rel="noopener">'+x[0]+'</a>'}).join('')+'</div>';
+    el.innerHTML=h;g.appendChild(el);
+  });
+  $$('.chip').forEach(function(c){c.addEventListener('click',function(){
+    $$('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');
+    var f=c.dataset.f;$$('.proj').forEach(function(p){p.classList.toggle('hide',f!=='all'&&p.dataset.c!==f)});
+  })});
+
+  /* counters + skill bars on view */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;io.unobserve(e.target);
+    if(e.target.id==='stats'){$$('b[data-n]',e.target).forEach(function(b){
+      var end=+b.dataset.n,s=b.dataset.s||'',k=0,step=Math.max(1,Math.ceil(end/24));
+      if(reduce){b.textContent=end+s;return}
+      var iv=setInterval(function(){k=Math.min(end,k+step);b.textContent=k+s;if(k>=end)clearInterval(iv)},45);
+    })}
+    if(e.target.id==='skillgrid'){$$('i[data-w]',e.target).forEach(function(b){b.style.width=b.dataset.w+'%'})}
+  })},{threshold:.3});
+  io.observe($('#stats'));io.observe($('#skillgrid'));
+
+  /* contact */
+  $('#copyNum').addEventListener('click',function(){
+    var num='+923368788821';
+    if(navigator.clipboard){navigator.clipboard.writeText(num).then(function(){toast('Phone number copied')},function(){toast(num)})}else{toast(num)}
+  });
+  var via='mail';
+  $$('#form button[type=submit]').forEach(function(b){b.addEventListener('click',function(){via=b.dataset.via})});
+  $('#form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=$('#fn').value.trim(),co=$('#fc').value.trim(),role=$('#fr').value.trim(),when=$('#ft').value,msg=$('#fm').value.trim();
+    var text='Hi Hashaam, this is '+name+(co?' from '+co:'')+'. I would like to schedule an interview'+(role?' for the '+role+' role':'')+'. Preferred time: '+when.toLowerCase()+'.'+(msg?'\n\n'+msg:'');
+    if(via==='wa'){window.open('https://wa.me/923368788821?text='+encodeURIComponent(text),'_blank','noopener')}
+    else{window.location.href='mailto:hashaamnadeem55@gmail.com?subject='+encodeURIComponent('Interview request'+(co?' - '+co:''))+'&body='+encodeURIComponent(text)}
+  });
+
+  /* particle network background */
+  var cv=$('#bg'),cx=cv.getContext('2d'),pts=[],W,H;
+  function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;pts=[];var c=Math.min(70,Math.floor(W*H/22000));for(var i=0;i<c;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35})}
+  function draw(){
+    cx.clearRect(0,0,W,H);
+    var dark=root.getAttribute('data-theme')==='dark',col=dark?'84,197,248':'10,127,196';
+    pts.forEach(function(p,i){
+      p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      cx.fillStyle='rgba('+col+',.7)';cx.beginPath();cx.arc(p.x,p.y,1.6,0,6.3);cx.fill();
+      for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;
+        if(d<16000){cx.strokeStyle='rgba('+col+','+(.22*(1-d/16000))+')';cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}
+    });
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  size();draw();addEventListener('resize',function(){size();if(reduce)draw()});
+})();
+</script>
+</body>
+</html>
