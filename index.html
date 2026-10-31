@@ -4,114 +4,134 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hashaam Nadeem | Flutter Team Lead</title>
-    <meta name="description" content="Flutter Team Lead building mobile products for IoT, travel, commerce, and real-time apps." />
+    <meta name="description" content="Flutter Team Lead building polished mobile products for IoT, travel, fintech, and marketplace apps." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #0a0d14;
-        --bg-2: #111827;
-        --panel: rgba(17, 24, 39, 0.92);
-        --panel-2: rgba(18, 25, 40, 0.9);
-        --card: rgba(22, 30, 47, 0.9);
-        --muted: #9aa7c0;
-        --text: #edf3ff;
-        --line: rgba(255,255,255,0.08);
-        --accent: #7c5cff;
-        --accent-2: #49d7ff;
-        --accent-3: #7ef0b7;
-        --gold: #f8c66b;
-        --shadow: rgba(0,0,0,0.4);
+        --bg: #f4efe9;
+        --bg-2: #f9f6f2;
+        --panel: rgba(255, 255, 255, 0.78);
+        --panel-2: rgba(255, 255, 255, 0.92);
+        --line: rgba(23, 29, 38, 0.08);
+        --line-strong: rgba(23, 29, 38, 0.12);
+        --text: #171d26;
+        --muted: #586272;
+        --muted-soft: #75819a;
+        --accent: #b68a5a;
+        --accent-2: #3d4d61;
+        --green: #2f8f6b;
+        --gold: #d7af6d;
+        --shadow: rgba(23, 29, 38, 0.09);
+        --radius: 26px;
       }
 
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        font-family: 'Inter', sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(124,92,255,0.14), transparent 25%),
-          radial-gradient(circle at bottom right, rgba(73,215,255,0.10), transparent 22%),
-          var(--bg);
+          radial-gradient(circle at 15% 15%, rgba(182, 138, 90, 0.12), transparent 18%),
+          radial-gradient(circle at 85% 70%, rgba(61, 77, 97, 0.08), transparent 16%),
+          linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
         color: var(--text);
+        font-family: 'Manrope', sans-serif;
         line-height: 1.6;
+        letter-spacing: -0.02em;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(22, 27, 36, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(22, 27, 36, 0.02) 1px, transparent 1px);
+        background-size: 24px 24px;
+        mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
       }
 
       a { color: inherit; text-decoration: none; }
-      img { max-width: 100%; display: block; }
+      img { display: block; max-width: 100%; }
       button, input, select, textarea { font: inherit; }
 
       .page {
         max-width: 1180px;
         margin: 0 auto;
-        padding: 0 20px 80px;
+        padding: 0 22px 80px;
       }
 
       nav {
         position: sticky;
         top: 0;
-        z-index: 20;
-        backdrop-filter: blur(12px);
-        background: rgba(10, 13, 20, 0.7);
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(255, 255, 255, 0.68);
         border-bottom: 1px solid var(--line);
       }
 
       .nav-inner {
         max-width: 1180px;
         margin: 0 auto;
-        padding: 18px 20px;
+        padding: 18px 22px;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
 
       .brand {
-        font-weight: 900;
+        font-size: 1.25rem;
         letter-spacing: -0.08em;
-        font-size: 1.3rem;
+        font-weight: 900;
       }
 
-      .brand .dot { color: var(--accent-2); }
+      .brand .dot { color: var(--accent); }
 
       .menu {
         display: flex;
         align-items: center;
-        gap: 26px;
+        gap: 24px;
+        font-size: 0.9rem;
         color: var(--muted);
-        font-size: 0.92rem;
       }
 
+      .menu a { transition: color 0.2s ease; }
       .menu a:hover { color: var(--text); }
 
       .nav-btn {
-        background: linear-gradient(135deg, #9fe9ff, #7c5cff);
-        color: #0b0d15;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         padding: 11px 18px;
         border-radius: 999px;
-        font-weight: 700;
-        box-shadow: 0 12px 28px rgba(124,92,255,0.25);
+        background: linear-gradient(135deg, #1b2430, #3d4d61);
+        color: #f7f4ef;
+        font-weight: 800;
+        box-shadow: 0 16px 28px rgba(29, 38, 50, 0.15);
       }
 
       .hero {
         display: grid;
         grid-template-columns: 1.08fr 0.92fr;
-        gap: 40px;
+        gap: 42px;
         align-items: center;
         min-height: calc(100vh - 80px);
-        padding-top: 30px;
+        padding-top: 34px;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 9px 14px;
-        color: var(--muted);
-        border: 1px solid var(--line);
+        gap: 9px;
+        padding: 8px 14px;
         border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.55);
+        color: var(--muted);
         font-size: 0.8rem;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       .eyebrow::before {
@@ -119,15 +139,15 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: var(--accent-3);
-        box-shadow: 0 0 14px rgba(126, 240, 183, 0.9);
+        background: var(--green);
+        box-shadow: 0 0 12px rgba(47, 143, 107, 0.5);
       }
 
       h1 {
-        margin: 20px 0 16px;
-        font-size: clamp(3rem, 6vw, 5.5rem);
-        line-height: 0.96;
-        letter-spacing: -0.08em;
+        margin: 22px 0 18px;
+        font-size: clamp(3.1rem, 6vw, 5.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.085em;
         font-weight: 900;
       }
 
@@ -138,7 +158,7 @@
 
       .hero-copy p {
         margin: 0;
-        max-width: 660px;
+        max-width: 650px;
         color: var(--muted);
         font-size: 1.08rem;
       }
@@ -147,44 +167,49 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 28px;
+        margin-top: 30px;
       }
 
       .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        padding: 15px 22px;
         border-radius: 999px;
-        font-weight: 700;
+        padding: 15px 22px;
+        font-weight: 800;
         border: 1px solid transparent;
-        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .btn:hover { transform: translateY(-2px); }
-      .btn.primary {
-        background: linear-gradient(135deg, #f9d997, #f4c766);
-        color: #171520;
-        box-shadow: 0 12px 32px rgba(248, 198, 107, 0.2);
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 28px rgba(23, 29, 38, 0.08);
       }
+
+      .btn.primary {
+        background: linear-gradient(135deg, #f7e4c7, #d7af6d);
+        color: #1d1a17;
+      }
+
       .btn.secondary {
-        background: rgba(255,255,255,0.03);
+        background: rgba(255,255,255,0.6);
         border-color: var(--line);
         color: var(--text);
       }
+
       .btn.ghost {
-        background: rgba(124,92,255,0.08);
-        border-color: rgba(124,92,255,0.3);
+        background: rgba(182,138,90,0.08);
+        border-color: rgba(182,138,90,0.25);
+        color: var(--text);
       }
 
       .meta-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 16px;
+        margin-top: 28px;
         color: var(--muted);
-        font-size: 0.9rem;
-        margin-top: 24px;
+        font-size: 0.88rem;
       }
 
       .meta-row strong { color: var(--text); }
@@ -197,31 +222,20 @@
       }
 
       .profile-card {
-        width: min(100%, 460px);
-        padding: 18px 18px 14px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+        width: min(100%, 470px);
+        padding: 18px 18px 12px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.4));
         border: 1px solid var(--line);
-        border-radius: 32px;
-        box-shadow: 0 24px 52px var(--shadow);
-      }
-
-      .profile-card::before {
-        content: "";
-        position: absolute;
-        inset: 10px 14px auto 14px;
-        height: 58%;
-        border-radius: 26px;
-        background: linear-gradient(180deg, rgba(124,92,255,0.18), rgba(73,215,255,0.1));
-        filter: blur(12px);
-        z-index: 0;
+        border-radius: 30px;
+        box-shadow: 0 24px 42px rgba(23, 29, 38, 0.09);
       }
 
       .profile-inner {
         position: relative;
         z-index: 1;
-        background: rgba(12, 17, 28, 0.9);
-        border: 1px solid rgba(255,255,255,0.05);
-        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(23,29,38,0.06);
+        border-radius: 24px;
         overflow: hidden;
       }
 
@@ -231,7 +245,7 @@
         justify-content: space-between;
         padding: 18px 18px 0;
         color: var(--muted);
-        font-size: 0.76rem;
+        font-size: 0.75rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
@@ -242,10 +256,10 @@
         gap: 8px;
         padding: 8px 10px;
         border-radius: 999px;
-        border: 1px solid rgba(126,240,183,0.35);
-        background: rgba(126,240,183,0.08);
-        color: #c3f9db;
-        font-size: 0.72rem;
+        background: rgba(47, 143, 107, 0.08);
+        border: 1px solid rgba(47, 143, 107, 0.18);
+        color: #1a553f;
+        font-size: 0.7rem;
         font-weight: 700;
       }
 
@@ -254,24 +268,24 @@
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: #7ef0b7;
-        box-shadow: 0 0 10px rgba(126,240,183,0.9);
+        background: var(--green);
+        box-shadow: 0 0 12px rgba(47, 143, 107, 0.5);
       }
 
       .profile-photo {
-        padding: 12px 18px 0;
+        padding: 10px 18px 0;
       }
 
       .profile-photo img {
         width: 100%;
-        aspect-ratio: 1.05 / 1.12;
+        aspect-ratio: 1 / 1.08;
         object-fit: cover;
         border-radius: 22px 22px 18px 18px;
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(23,29,38,0.06);
       }
 
       .profile-body {
-        padding: 18px 18px 18px;
+        padding: 18px 18px 20px;
       }
 
       .title-row {
@@ -284,124 +298,122 @@
 
       .title-row h3 {
         margin: 0;
-        font-size: 1.7rem;
+        font-size: 1.72rem;
         letter-spacing: -0.07em;
       }
 
       .role-tag {
-        font-size: 0.72rem;
         padding: 8px 10px;
         border-radius: 999px;
-        background: rgba(124,92,255,0.12);
-        border: 1px solid rgba(124,92,255,0.32);
-        color: #d6ccff;
-        font-weight: 700;
+        background: rgba(61,77,97,0.08);
+        border: 1px solid rgba(61,77,97,0.14);
+        color: var(--accent-2);
+        font-size: 0.72rem;
+        font-weight: 800;
       }
 
       .profile-body p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.94rem;
+        font-size: 0.95rem;
       }
 
       .stack {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-top: 16px;
+        margin-top: 18px;
       }
 
       .stack span {
-        font-size: 0.72rem;
         padding: 7px 9px;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(23,29,38,0.08);
         border-radius: 999px;
-        color: #dfe8ff;
+        background: rgba(37, 45, 56, 0.03);
+        color: var(--text);
+        font-size: 0.72rem;
       }
 
       .mini-cards {
         position: absolute;
         right: -14px;
         bottom: 18px;
+        width: 180px;
         display: grid;
         gap: 12px;
-        width: 180px;
       }
 
       .mini-card {
-        background: rgba(14, 18, 29, 0.96);
+        padding: 12px 14px;
+        background: rgba(255,255,255,0.87);
         border: 1px solid var(--line);
         border-radius: 18px;
-        padding: 12px 14px;
-        box-shadow: 0 18px 26px rgba(0,0,0,0.25);
+        box-shadow: 0 18px 30px rgba(23, 29, 38, 0.06);
       }
 
       .mini-card strong {
         display: block;
         margin-bottom: 6px;
-        font-size: 1.2rem;
+        font-size: 1.18rem;
         letter-spacing: -0.06em;
       }
 
       .mini-card span {
         color: var(--muted);
-        font-size: 0.7rem;
-        letter-spacing: 0.05em;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
       .stats-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0,1fr));
         gap: 18px;
-        margin: 26px 0 0;
+        margin-top: 30px;
       }
 
       .stat {
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--line);
-        border-radius: 22px;
         padding: 24px 20px 18px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.62);
+        border: 1px solid var(--line);
+        box-shadow: 0 14px 26px rgba(23, 29, 38, 0.04);
       }
 
       .stat strong {
         display: block;
         margin-bottom: 8px;
-        font-size: clamp(2rem, 3vw, 2.9rem);
+        font-size: clamp(2rem, 3vw, 2.7rem);
         letter-spacing: -0.08em;
-        line-height: 1;
       }
 
       .stat span {
         color: var(--muted);
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      section {
-        padding-top: 96px;
-      }
+      section { padding-top: 100px; }
 
       .section-head {
         display: flex;
-        align-items: end;
         justify-content: space-between;
-        gap: 20px;
+        align-items: end;
+        gap: 18px;
         margin-bottom: 28px;
         flex-wrap: wrap;
       }
 
       .section-head h2 {
         margin: 0;
-        font-size: clamp(2rem, 3vw, 3rem);
+        font-size: clamp(2.1rem, 3vw, 3rem);
         letter-spacing: -0.08em;
       }
 
       .section-head p {
-        max-width: 620px;
         margin: 0;
+        max-width: 650px;
         color: var(--muted);
         font-size: 1rem;
       }
@@ -413,16 +425,16 @@
       }
 
       .glass {
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--line);
-        border-radius: 28px;
         padding: 24px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.62);
+        border: 1px solid var(--line);
       }
 
       .glass p {
         margin: 0 0 18px;
         color: var(--muted);
-        font-size: 1.04rem;
+        font-size: 1.02rem;
       }
 
       .glass p:last-child { margin-bottom: 0; }
@@ -434,11 +446,11 @@
 
       .highlight-item {
         display: flex;
-        gap: 12px;
         align-items: flex-start;
+        gap: 12px;
         padding: 12px 0;
         color: var(--muted);
-        border-bottom: 1px solid rgba(255,255,255,0.06);
+        border-bottom: 1px solid rgba(23,29,38,0.06);
       }
 
       .highlight-item:last-child { border-bottom: none; }
@@ -449,8 +461,8 @@
         height: 10px;
         margin-top: 8px;
         border-radius: 4px;
-        background: linear-gradient(135deg, var(--accent-2), var(--accent));
-        box-shadow: 0 0 16px rgba(73,215,255,0.8);
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 16px rgba(182,138,90,0.23);
       }
 
       .timeline {
@@ -467,28 +479,27 @@
         top: 8px;
         bottom: 8px;
         width: 2px;
-        background: linear-gradient(180deg, rgba(124,92,255,0.9), rgba(73,215,255,0.8), transparent);
+        background: linear-gradient(180deg, rgba(182,138,90,0.85), rgba(61,77,97,0.65), transparent);
       }
 
       .job {
         position: relative;
         padding: 20px 20px 18px 18px;
-        border: 1px solid var(--line);
-        background: rgba(255,255,255,0.02);
         border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.62);
       }
 
       .job::before {
         content: "";
         position: absolute;
         left: -10px;
-        top: 26px;
+        top: 28px;
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background: #091018;
-        border: 3px solid var(--accent-2);
-        box-shadow: 0 0 18px rgba(73,215,255,0.5);
+        background: #fff9f0;
+        border: 3px solid var(--accent);
       }
 
       .job-head {
@@ -508,7 +519,7 @@
       .role-company {
         margin-top: 4px;
         color: var(--accent-2);
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         font-weight: 700;
       }
 
@@ -517,7 +528,7 @@
         font-size: 0.72rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: 'IBM Plex Mono', monospace;
       }
 
       .job ul {
@@ -539,27 +550,27 @@
         flex-direction: column;
         gap: 12px;
         padding: 18px 18px 14px;
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--line);
         border-radius: 22px;
+        background: rgba(255,255,255,0.62);
+        border: 1px solid var(--line);
         transition: transform 0.2s ease, border-color 0.2s ease;
       }
 
       .project-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(124,92,255,0.5);
+        transform: translateY(-2px);
+        border-color: rgba(182,138,90,0.45);
       }
 
       .project-card h3 {
         margin: 0;
-        font-size: 1.32rem;
+        font-size: 1.3rem;
         letter-spacing: -0.06em;
       }
 
       .project-card p {
         margin: 0;
-        color: var(--muted);
         flex: 1;
+        color: var(--muted);
         font-size: 0.95rem;
       }
 
@@ -580,13 +591,13 @@
       .tags span {
         padding: 6px 9px;
         border-radius: 999px;
-        background: rgba(124,92,255,0.12);
-        border: 1px solid rgba(124,92,255,0.25);
-        color: #d7cfff;
-        font-size: 0.68rem;
-        letter-spacing: 0.06em;
+        background: rgba(182,138,90,0.08);
+        border: 1px solid rgba(182,138,90,0.16);
+        color: var(--accent-2);
+        font-size: 0.66rem;
+        letter-spacing: 0.07em;
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 800;
       }
 
       .links {
@@ -597,9 +608,9 @@
       }
 
       .links a {
-        color: #edf3ff;
+        color: var(--text);
         font-size: 0.82rem;
-        border-bottom: 1px solid rgba(124,92,255,0.7);
+        border-bottom: 1px solid rgba(61,77,97,0.3);
         padding-bottom: 2px;
       }
 
@@ -610,10 +621,10 @@
       }
 
       .skill-card {
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--line);
+        padding: 20px 18px;
         border-radius: 22px;
-        padding: 22px 20px;
+        background: rgba(255,255,255,0.62);
+        border: 1px solid var(--line);
       }
 
       .skill-card h3 {
@@ -628,9 +639,9 @@
         display: flex;
         justify-content: space-between;
         gap: 8px;
-        font-size: 0.82rem;
-        color: var(--muted);
         margin-bottom: 7px;
+        color: var(--muted);
+        font-size: 0.82rem;
       }
 
       .skill-row strong { color: var(--text); }
@@ -638,18 +649,18 @@
       .bar {
         width: 100%;
         height: 8px;
-        background: rgba(255,255,255,0.05);
         border-radius: 999px;
+        background: rgba(23,29,38,0.05);
         overflow: hidden;
       }
 
       .bar span {
         display: block;
-        height: 100%;
         width: 0;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        height: 100%;
         border-radius: inherit;
-        transition: width 1.2s ease;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        transition: width 1.15s ease;
       }
 
       .chip-list {
@@ -663,8 +674,8 @@
         align-items: center;
         padding: 8px 10px;
         border-radius: 999px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(23,29,38,0.03);
+        border: 1px solid rgba(23,29,38,0.06);
         color: var(--muted);
         font-size: 0.74rem;
       }
@@ -673,22 +684,22 @@
         display: grid;
         grid-template-columns: 0.9fr 1.1fr;
         gap: 22px;
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--line);
-        border-radius: 30px;
         padding: 26px;
+        border-radius: 30px;
+        background: rgba(255,255,255,0.62);
+        border: 1px solid var(--line);
       }
 
       .contact-copy h2 {
         margin: 0 0 12px;
         font-size: clamp(2.2rem, 4vw, 3.4rem);
-        letter-spacing: -0.08em;
         line-height: 1;
+        letter-spacing: -0.08em;
       }
 
       .contact-copy p {
-        color: var(--muted);
         margin: 0 0 18px;
+        color: var(--muted);
       }
 
       .link-stack {
@@ -704,28 +715,27 @@
         gap: 12px;
         width: 100%;
         padding: 14px 16px;
-        background: rgba(3,4,10,0.52);
-        border: 1px solid var(--line);
-        color: var(--text);
         border-radius: 16px;
-        font: inherit;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.74);
+        color: var(--text);
         text-align: left;
         cursor: pointer;
       }
 
       .link-stack small {
         color: var(--muted);
-        font-family: 'JetBrains Mono', monospace;
         font-size: 0.7rem;
+        font-family: 'IBM Plex Mono', monospace;
       }
 
       form {
-        background: rgba(3,4,10,0.52);
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        padding: 20px;
         display: grid;
         gap: 14px;
+        padding: 20px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.74);
+        border: 1px solid var(--line);
       }
 
       form h3 {
@@ -745,15 +755,15 @@
         gap: 7px;
         color: var(--muted);
         font-size: 0.8rem;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       input, select, textarea {
         width: 100%;
         padding: 12px 14px;
         border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(23,29,38,0.08);
+        background: rgba(255,255,255,0.72);
         color: var(--text);
       }
 
@@ -770,10 +780,10 @@
       }
 
       .footer {
+        padding: 30px 0 70px;
         text-align: center;
         color: var(--muted);
-        padding: 34px 0 70px;
-        font-size: 0.88rem;
+        font-size: 0.9rem;
       }
 
       .toast {
@@ -783,11 +793,11 @@
         transform: translateX(-50%) translateY(10px);
         opacity: 0;
         pointer-events: none;
-        background: #edf3ff;
-        color: #121726;
-        border-radius: 999px;
         padding: 10px 18px;
-        font-weight: 700;
+        border-radius: 999px;
+        background: #1c2430;
+        color: #f7f4ef;
+        font-weight: 800;
         transition: 0.25s ease;
       }
 
@@ -798,10 +808,10 @@
 
       @media (max-width: 1024px) {
         .hero, .about-grid, .contact-box { grid-template-columns: 1fr; }
-        .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .project-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
         .skills-grid { grid-template-columns: 1fr; }
         .profile-wrap { min-height: auto; }
-        .mini-cards { position: static; width: 100%; margin-top: 16px; }
+        .mini-cards { position: static; width: 100%; margin-top: 14px; }
         .menu a:not(.nav-btn) { display: none; }
       }
 
@@ -838,7 +848,7 @@
             <span>Building mobile products that feel real.</span>
           </h1>
           <p>
-            I’m a Flutter Team Lead with 6+ years building high-impact apps for IoT, travel, e-commerce, and communication products. I turn complex requirements into reliable, user-friendly mobile experiences.
+            I’m a Flutter Team Lead with 6+ years building polished mobile products for IoT, travel, fintech, and marketplace apps. I turn complexity into clean, reliable experiences people trust.
           </p>
 
           <div class="cta-row">
@@ -849,7 +859,7 @@
 
           <div class="meta-row">
             <span><strong>Location:</strong> Lahore, Pakistan</span>
-            <span><strong>Open to:</strong> Remote + contract</span>
+            <span><strong>Open to:</strong> Remote / contract</span>
             <span><strong>Reply:</strong> within 1 day</span>
           </div>
         </div>
@@ -869,7 +879,7 @@
                   <h3>Hashaam Nadeem</h3>
                   <span class="role-tag">Flutter Lead</span>
                 </div>
-                <p>Cross-platform product engineer focused on scalable mobile systems, hardware integration, and team-driven product delivery.</p>
+                <p>Product-minded engineer focused on scalable mobile systems, hardware integration, and stronger team delivery.</p>
                 <div class="stack">
                   <span>Flutter</span>
                   <span>Dart</span>
@@ -896,42 +906,30 @@
       </header>
 
       <div class="stats-grid">
-        <div class="stat">
-          <strong>6+</strong>
-          <span>Years in mobile</span>
-        </div>
-        <div class="stat">
-          <strong>20+</strong>
-          <span>Apps delivered</span>
-        </div>
-        <div class="stat">
-          <strong>4</strong>
-          <span>Companies</span>
-        </div>
-        <div class="stat">
-          <strong>2</strong>
-          <span>Years leading teams</span>
-        </div>
+        <div class="stat"><strong>6+</strong><span>Years in mobile</span></div>
+        <div class="stat"><strong>20+</strong><span>Apps delivered</span></div>
+        <div class="stat"><strong>4</strong><span>Companies</span></div>
+        <div class="stat"><strong>2</strong><span>Years leading teams</span></div>
       </div>
 
       <section id="about">
         <div class="section-head">
           <h2>About</h2>
-          <p>I design and build with the product, the user, and the team in mind — balancing quality, speed, and long-term reliability.</p>
+          <p>I build with product thinking, engineering depth, and a strong focus on reliable user experience.</p>
         </div>
 
         <div class="about-grid">
           <div class="glass">
-            <p>I specialize in Flutter app development for products that need more than just attractive screens — they need stable architecture, secure data handling, and dependable integrations with hardware, APIs, and payment systems.</p>
-            <p>From IoT and Bluetooth workflows to marketplace apps and real-time communication, I’ve built and led products across multiple domains. I’m comfortable with architecture decisions, release work, technical leadership, and day-to-day engineering execution.</p>
-            <p>My work sits at the intersection of product thinking and engineering depth. I help teams move faster without compromising maintainability or user trust.</p>
+            <p>I specialize in Flutter app development for products that need more than attractive screens — they need stable architecture, secure data handling, and dependable integrations with hardware, APIs, and payment systems.</p>
+            <p>From IoT and Bluetooth flows to marketplace products and real-time communication, I’ve built and led products across multiple domains. I’m comfortable with technical leadership, release management, and everyday engineering decisions that keep projects moving.</p>
+            <p> My work balances product demands, team realities, and clean engineering choices without overengineering the solution.</p>
           </div>
 
           <div class="glass highlights">
-            <div class="highlight-item">Flutter leadership, reviews, architecture, and technical mentorship.</div>
-            <div class="highlight-item">Bluetooth, IoT, background services, secure data sync, and native integrations.</div>
-            <div class="highlight-item">Payment flows, REST APIs, auth, Firebase, and release management.</div>
-            <div class="highlight-item">Product-minded collaboration with PMs, designers, and business stakeholders.</div>
+            <div class="highlight-item">Flutter leadership, architecture, reviews, and technical mentoring.</div>
+            <div class="highlight-item">Bluetooth, IoT, background services, secure sync, and native integration.</div>
+            <div class="highlight-item">Payment flows, REST APIs, auth, Firebase, and App Store release work.</div>
+            <div class="highlight-item">Clear collaboration with PMs, designers, and stakeholders.</div>
           </div>
         </div>
       </section>
@@ -939,7 +937,7 @@
       <section id="experience">
         <div class="section-head">
           <h2>Experience</h2>
-          <p>Focused on product delivery, team leadership, and building systems that hold up in real-world use.</p>
+          <p>Focused on strong product delivery, team leadership, and shipping systems people can depend on.</p>
         </div>
 
         <div class="timeline">
@@ -953,8 +951,8 @@
             </div>
             <ul>
               <li>Lead product delivery for IoT and booking-driven experiences.</li>
-              <li>Drive architecture decisions, code-quality standards, and feature execution across releases.</li>
-              <li>Build apps involving Bluetooth connectivity, live chat, auth, payments, and real-time updates.</li>
+              <li>Drive architecture decisions, code quality, and feature execution across releases.</li>
+              <li>Build apps involving Bluetooth pairing, live chat, auth, payments, and real-time updates.</li>
             </ul>
           </article>
 
@@ -968,7 +966,7 @@
             </div>
             <ul>
               <li>Delivered AI-enabled and IoT-facing mobile solutions with secure device communication.</li>
-              <li>Managed feature implementation across healthcare, travel, and smart-device workflows.</li>
+              <li>Managed feature work across healthcare, travel, and smart-device workflows.</li>
               <li>Improved background sync, connection stability, and cross-platform reliability.</li>
             </ul>
           </article>
@@ -982,7 +980,7 @@
               <div class="job-date">2020 — 2022</div>
             </div>
             <ul>
-              <li>Built mobile apps with state management, payment integrations, and API-heavy backend flows.</li>
+              <li>Built apps with state management, payment integrations, and API-heavy backend flows.</li>
               <li>Worked across UI complexity and performance-focused improvements.</li>
               <li>Helped ship production apps on both Android and iOS with strong release discipline.</li>
             </ul>
@@ -993,45 +991,45 @@
       <section id="projects">
         <div class="section-head">
           <h2>Projects</h2>
-          <p>Selected products I’ve built and led across travel, e-commerce, IoT, and customer-facing mobile experiences.</p>
+          <p>Selected products I’ve built and led across travel, e-commerce, IoT, and customer-facing experiences.</p>
         </div>
 
         <div class="project-grid">
           <article class="project-card">
-            <h3><span class="dot" style="background:#7ef0b7;"></span>Pow and Go</h3>
-            <p>EV charging app with device connectivity, charger session handling, and live charging data.</p>
+            <h3><span class="dot" style="background:#7fe9be;"></span>Pow and Go</h3>
+            <p>EV charging app with device connectivity, charging session handling, and live status tracking.</p>
             <div class="tags"><span>Flutter</span><span>IoT</span><span>Firebase</span></div>
             <div class="links"><a href="https://play.google.com/store/apps/details?id=com.mtp.powandgos&hl=en" target="_blank" rel="noreferrer">Play Store</a><a href="https://apps.apple.com/us/app/powandgo/id676921790" target="_blank" rel="noreferrer">App Store</a></div>
           </article>
 
           <article class="project-card">
-            <h3><span class="dot" style="background:#4ddcff;"></span>eTRAPP</h3>
+            <h3><span class="dot" style="background:#5ad5ff;"></span>eTRAPP</h3>
             <p>Bluetooth-enabled AC monitoring app for diagnostics, health checks, and system data tracking.</p>
             <div class="tags"><span>Flutter</span><span>Bluetooth</span><span>Azure</span></div>
             <div class="links"><a href="https://play.google.com/store/apps/details?id=com.cybersoft.etrap" target="_blank" rel="noreferrer">Play Store</a></div>
           </article>
 
           <article class="project-card">
-            <h3><span class="dot" style="background:#ffcb59;"></span>eTrips</h3>
+            <h3><span class="dot" style="background:#f4d48b;"></span>eTrips</h3>
             <p>Travel booking and event app with itinerary flows, hotel management, and customer engagement.</p>
             <div class="tags"><span>Flutter</span><span>Travel</span><span>Booking</span></div>
           </article>
 
           <article class="project-card">
-            <h3><span class="dot" style="background:#9d84ff;"></span>Marketplace apps</h3>
+            <h3><span class="dot" style="background:#9a89ff;"></span>Marketplace apps</h3>
             <p>Multi-vendor commerce apps covering catalogs, orders, bids, and digital payments.</p>
             <div class="tags"><span>Commerce</span><span>Payments</span><span>Flutter</span></div>
           </article>
 
           <article class="project-card">
-            <h3><span class="dot" style="background:#ff82be;"></span>Job Reels</h3>
-            <p>Short-form job discovery experience designed for quick, engaging discovery and browsing.</p>
+            <h3><span class="dot" style="background:#ff9bc1;"></span>Job Reels</h3>
+            <p>Short-form job discovery experience designed for quick, engaging browsing and retention.</p>
             <div class="tags"><span>Media</span><span>Flutter</span><span>Video</span></div>
           </article>
 
           <article class="project-card">
-            <h3><span class="dot" style="background:#69d4ff;"></span>Property Finder</h3>
-            <p>Property search app built for intuitive discovery and a smoother decision-making flow.</p>
+            <h3><span class="dot" style="background:#73d4ff;"></span>Property Finder</h3>
+            <p>Property search app built for intuitive discovery and smoother decision-making.</p>
             <div class="tags"><span>Real estate</span><span>Flutter</span><span>REST</span></div>
           </article>
         </div>
@@ -1040,7 +1038,7 @@
       <section id="skills">
         <div class="section-head">
           <h2>Skills</h2>
-          <p>Tools I rely on every day, from mobile architecture and APIs to release quality and team delivery.</p>
+          <p>Core tools I rely on to design, build, and ship polished mobile experiences.</p>
         </div>
 
         <div class="skills-grid">
@@ -1095,13 +1093,13 @@
       <section id="contact">
         <div class="section-head">
           <h2>Contact</h2>
-          <p>If you are looking for a Flutter lead, senior mobile engineer, or product-minded technical partner, let’s talk.</p>
+          <p>If you’re looking for a Flutter lead, senior mobile engineer, or technical partner, let’s talk.</p>
         </div>
 
         <div class="contact-box">
           <div class="contact-copy">
             <h2>Let’s build something great.</h2>
-            <p>Hiring for a product team or need a senior developer to help shape the mobile experience? I’d be happy to chat.</p>
+            <p>Hiring for a product team or need a senior developer to help shape the experience? I’d be happy to chat.</p>
             <div class="link-stack">
               <a href="tel:+923368788821"><span>Call</span><small>+92 336 8788821</small></a>
               <a href="https://wa.me/923368788821?text=Hi%20Hashaam%2C%20I%27d%20like%20to%20schedule%20an%20interview." target="_blank" rel="noreferrer"><span>WhatsApp</span><small>Message now</small></a>
@@ -1145,7 +1143,7 @@
 
             <div class="form-actions">
               <button class="btn primary" type="submit">Send by email</button>
-              <button class="btn ghost" id="waButton" type="button">Send on WhatsApp</button>
+              <button class="btn ghost" type="button" id="waButton">Send on WhatsApp</button>
             </div>
           </form>
         </div>
@@ -1164,9 +1162,7 @@
         toastEl.textContent = text;
         toastEl.classList.add('show');
         clearTimeout(window.toastTimer);
-        window.toastTimer = setTimeout(() => {
-          toastEl.classList.remove('show');
-        }, 2000);
+        window.toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2000);
       }
 
       document.getElementById('copyPhone').addEventListener('click', async () => {
